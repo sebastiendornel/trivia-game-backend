@@ -4,6 +4,7 @@ class QuestionsController < ApplicationController
         # render json: questions: include: [:question_text, :correct_answer, :incorrect_answers]
         # render json: Question.all.to_json(:include => :question_text, :correct_answer, :incorrect_answers)
         render json: Question.all.to_json(:include => :user_questions)
+        # byebug
     end
 end
 

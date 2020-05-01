@@ -4,7 +4,7 @@ class UsersController < ApplicationController
         # render json: users: include: [:name]
         render json: User.all.to_json(:include => :user_questions) #may not need the include clause
     end
-ends
+end
 
 
 

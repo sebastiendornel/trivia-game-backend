@@ -9,7 +9,7 @@ class UserQuestionsController < ApplicationController
 
 
     def create
-    #   byebug
+
         user_question = UserQuestion.create(points: 1, user_id: params[:user_id], question_id: params[:question_id])
 
 
