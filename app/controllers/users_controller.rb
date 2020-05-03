@@ -28,7 +28,7 @@ class UsersController < ApplicationController
             render json: user
         else
             user = User.create(name: params[:name] )#, user_questions: params[:user_question])
-            # byebug
+            byebug
             render json: user
         end
     end
