@@ -11,14 +11,26 @@ class UsersController < ApplicationController
     end
 
     def create
-        # byebug
+
         # begin
-        #     user = User.find(params[:name])
+        # user = User.find(params[:name])
         # rescue
-            user = User.create(name: params[:name] )#, user_questions: params[:user_question])
+        # if !user
+        #     user = User.create(name: params[:name] )#, user_questions: params[:user_question])
+        #     render json: user
         # else
-            render json: user
+        #     byebug
+        #     user = User.find_by(name: params[:name])
+        #     render json: user
         # end
+        if !!User.find_by(name: params[:name]) 
+            user = User.find_by(name: params[:name])
+            render json: user
+        else
+            user = User.create(name: params[:name] )#, user_questions: params[:user_question])
+            # byebug
+            render json: user
+        end
     end
 end
 
