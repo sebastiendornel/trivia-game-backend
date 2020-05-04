@@ -9,7 +9,9 @@ class UserQuestionsController < ApplicationController
 
 
     def create
+        
         user_question = UserQuestion.create(points: 1, user_id: params[:user_id], question_id: params[:question_id])
+        
     end
 end
 # def create

@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     
     def show
         user = User.find_by(name: params[:name])
-        byebug
+        # byebug
     end
 
     def create
@@ -25,10 +25,11 @@ class UsersController < ApplicationController
         # end
         if !!User.find_by(name: params[:name]) 
             user = User.find_by(name: params[:name])
+            #byebug
             render json: user
         else
             user = User.create(name: params[:name] )#, user_questions: params[:user_question])
-            byebug
+            #byebug
             render json: user
         end
     end
