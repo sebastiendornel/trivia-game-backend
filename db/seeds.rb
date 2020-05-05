@@ -82,7 +82,7 @@ json1 = JSON.parse(resp1.body)
 #   return string.replace(/&amp/g, "&")
 # }
 
-10.times do
+20.times do
     json1["results"].each{|question| Question.create(question_text: question["question"], correct_answer: question["correct_answer"], incorrect_answers: question["incorrect_answers"])}
 end
 
