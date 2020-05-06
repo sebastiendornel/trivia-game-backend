@@ -9,17 +9,20 @@
 require 'faker'
 # require 'securerandom'
 
-User.delete_all
-Question.delete_all
-UserQuestion.delete_all
+# User.delete_all
+# Question.delete_all
+# UserQuestion.delete_all
 
-user1 = User.create(name: "DannyTwoThumbs")
-user2 = User.create(name: "I can whistle")
+# user1 = User.create(name: "DannyTwoThumbs")
+# user2 = User.create(name: "Bassy")
 
-question1 = Question.create(question_text: "What was the punishment for Sysiphus's craftiness?", correct_answer: "Cursed to roll a boulder up a hill for eternity.", incorrect_answers: ["Tied to a boulder for eternity, being pecked by birds.", "Standing in a lake filled with water he could not drink.", "To fell a tree that regenerated after every axe swing."])
-question2 = Question.create(question_text: "According to a Beatles song, who kept her face in a jar by the door?", correct_answer: "Eleanor Rigby.", incorrect_answers: ["Loretta Martin.", "Molly Jones.", "Lady Madonna."])
-question3 = Question.create(question_text: "The mountainous Khyber Pass connects which of the two following countries?", correct_answer: "Afghanistan and Pakistan.", incorrect_answers: ["India and Nepal.", "Pakistan and India.", "Tajikistan and Kyrgyzstan."])
-resp1 = RestClient.get 'https://opentdb.com/api.php?amount=50'
+# question1 = Question.create(question_text: "What was the punishment for Sysiphus's craftiness?", correct_answer: "Cursed to roll a boulder up a hill for eternity.", incorrect_answers: ["Tied to a boulder for eternity, being pecked by birds.", "Standing in a lake filled with water he could not drink.", "To fell a tree that regenerated after every axe swing."])
+# question2 = Question.create(question_text: "According to a Beatles song, who kept her face in a jar by the door?", correct_answer: "Eleanor Rigby.", incorrect_answers: ["Loretta Martin.", "Molly Jones.", "Lady Madonna."])
+# question3 = Question.create(question_text: "The mountainous Khyber Pass connects which of the two following countries?", correct_answer: "Afghanistan and Pakistan.", incorrect_answers: ["India and Nepal.", "Pakistan and India.", "Tajikistan and Kyrgyzstan."])
+# question4 = Question.create(question_text: "When Michael Jordan played for the Chicago Bulls, how many NBA Championships did he win?", correct_answer: "six", incorrect_answers: ["five", "seven", "eight"])
+# question5 = Question.create(question_text: "What was Twitter’s original name?", correct_answer: "twttr", incorrect_answers: ["tweeter", "twit", "chirp"])
+# question6 = Question.create(question_text: "Which animal can be seen on the Porsche logo?", correct_answer: "twttr", incorrect_answers: ["tweeter", "twit", "chirp"])
+# resp1 = RestClient.get 'https://opentdb.com/api.php?amount=50'
 # resp2 = RestClient.get 'https://opentdb.com/api.php?amount=50'
 # resp3 = RestClient.get 'https://opentdb.com/api.php?amount=50'
 # resp4 = RestClient.get 'https://opentdb.com/api.php?amount=50'
@@ -35,21 +38,20 @@ resp1 = RestClient.get 'https://opentdb.com/api.php?amount=50'
 # resp14 = RestClient.get 'https://opentdb.com/api.php?amount=50'
 # resp15 = RestClient.get 'https://opentdb.com/api.php?amount=50'
 # resp16 = RestClient.get 'https://opentdb.com/api.php?amount=50'
-# resp17 = RestClient.get 'https://opentdb.com/api.php?amount=50'
-# resp18 = RestClient.get 'https://opentdb.com/api.php?amount=50'
-# resp19 = RestClient.get 'https://opentdb.com/api.php?amount=50'
-# resp20 = RestClient.get 'https://opentdb.com/api.php?amount=50'
+resp17 = RestClient.get 'https://opentdb.com/api.php?amount=50'
+resp18 = RestClient.get 'https://opentdb.com/api.php?amount=50'
+resp19 = RestClient.get 'https://opentdb.com/api.php?amount=50'
+resp20 = RestClient.get 'https://opentdb.com/api.php?amount=50'
 
-def cleaner(argument) #"[\"Valpara&iacute;so\", \"Copiap&oacute;\", \"Antofagasta\"]" is another issue
-    gsub1 = argument.gsub("&quot", "'")
-    gsub2 = gsub1.gsub("&#039;", "'")
-    gsub3 = gsub2.gsub("&amp", "&")
-    return gsub3
-end
+# def cleaner(argument) #"[\"Valpara&iacute;so\", \"Copiap&oacute;\", \"Antofagasta\"]" is another issue
+#     gsub1 = argument.gsub("&quot", "'")
+#     gsub2 = gsub1.gsub("&#039;", "'")
+#     gsub3 = gsub2.gsub("&amp", "&")
+#     return gsub3
+# end
 
-# ok. Maybe i'll get a beer soon then
 # arr.map{|x| cleaner(x)}
-json1 = JSON.parse(resp1.body)
+# json1 = JSON.parse(resp1.body)
 # json2 = JSON.parse(resp2.body)
 # json3 = JSON.parse(resp3.body)
 # json4 = JSON.parse(resp4.body)
@@ -65,10 +67,10 @@ json1 = JSON.parse(resp1.body)
 # json14 = JSON.parse(resp14.body)
 # json15 = JSON.parse(resp15.body)
 # json16 = JSON.parse(resp16.body)
-# json17 = JSON.parse(resp17.body)
-# json18 = JSON.parse(resp18.body)
-# json19 = JSON.parse(resp19.body)
-# json20 = JSON.parse(resp20.body)
+json17 = JSON.parse(resp17.body)
+json18 = JSON.parse(resp18.body)
+json19 = JSON.parse(resp19.body)
+json20 = JSON.parse(resp20.body)
 
 # function stringFixer1(string){
 #   return string.replace(/&quot;/g, "'")
@@ -82,9 +84,9 @@ json1 = JSON.parse(resp1.body)
 #   return string.replace(/&amp/g, "&")
 # }
 
-20.times do
-    json1["results"].each{|question| Question.create(question_text: question["question"], correct_answer: question["correct_answer"], incorrect_answers: question["incorrect_answers"])}
-end
+# 20.times do
+#     json1["results"].each{|question| Question.create(question_text: question["question"], correct_answer: question["correct_answer"], incorrect_answers: question["incorrect_answers"])}
+# end
 
 # i50 = json1["results"].each{|question| Question.create(question_text: question["question"], correct_answer: question["correct_answer"], incorrect_answers: question["incorrect_answers"])}
 # ii50 = json2["results"].each{|question| Question.create(question_text: question["question"], correct_answer: question["correct_answer"], incorrect_answers: question["incorrect_answers"])}
@@ -102,11 +104,11 @@ end
 # xiv50 = json14["results"].each{|question| Question.create(question_text: question["question"], correct_answer: question["correct_answer"], incorrect_answers: question["incorrect_answers"])}
 # xv50 = json15["results"].each{|question| Question.create(question_text: question["question"], correct_answer: question["correct_answer"], incorrect_answers: question["incorrect_answers"])}
 # xvi50 = json16["results"].each{|question| Question.create(question_text: question["question"], correct_answer: question["correct_answer"], incorrect_answers: question["incorrect_answers"])}
-# xvii50 = json17["results"].each{|question| Question.create(question_text: question["question"], correct_answer: question["correct_answer"], incorrect_answers: question["incorrect_answers"])}
-# xviii50 = json18["results"].each{|question| Question.create(question_text: question["question"], correct_answer: question["correct_answer"], incorrect_answers: question["incorrect_answers"])}
-# xix50 = json19["results"].each{|question| Question.create(question_text: question["question"], correct_answer: question["correct_answer"], incorrect_answers: question["incorrect_answers"])}
-# xx50 = json20["results"].each{|question| Question.create(question_text: question["question"], correct_answer: question["correct_answer"], incorrect_answers: question["incorrect_answers"])}
+xvii50 = json17["results"].each{|question| Question.create(question_text: question["question"], correct_answer: question["correct_answer"], incorrect_answers: question["incorrect_answers"])}
+xviii50 = json18["results"].each{|question| Question.create(question_text: question["question"], correct_answer: question["correct_answer"], incorrect_answers: question["incorrect_answers"])}
+xix50 = json19["results"].each{|question| Question.create(question_text: question["question"], correct_answer: question["correct_answer"], incorrect_answers: question["incorrect_answers"])}
+xx50 = json20["results"].each{|question| Question.create(question_text: question["question"], correct_answer: question["correct_answer"], incorrect_answers: question["incorrect_answers"])}
 
-userquestion1 = UserQuestion.create(points: 1, user_id: user1.id, question_id: question2.id)
-userquestion2 = UserQuestion.create(points: 1, user_id: user2.id, question_id: question1.id)
+# userquestion1 = UserQuestion.create(points: 1, user_id: user1.id, question_id: question2.id)
+# userquestion2 = UserQuestion.create(points: 1, user_id: user2.id, question_id: question1.id)
 
